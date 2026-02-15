@@ -5,11 +5,15 @@ import { Autchontex } from '../Contex/AuthContex';
 import { signInWithPopup } from 'firebase/auth';
 import { auth } from '../Firebase/fitebase.init';
 import { GoogleAuthProvider } from 'firebase/auth';
-import { Navigate } from 'react-router';
+import { Navigate, useLocation, useNavigate } from 'react-router';
 
 const SignIn = () => {
 
     const {signInUser} =use(Autchontex)
+    const location = useLocation()
+    console.log('signin',location);
+    const navigat = useNavigate()
+    const from =location.state || '/'
     
 
     const handalOnSignIn = (e) => {
@@ -22,6 +26,7 @@ const SignIn = () => {
         signInUser(email,password)
         .then(result =>{
             console.log(result.user);
+            navigat(from)
         })
         .catch(error => {
             console.log(error);

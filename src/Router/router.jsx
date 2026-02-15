@@ -4,6 +4,9 @@ import Home from "../Pager/Home/Home";
 import Register from "../Pager/Register";
 import SignIn from "../Pager/SignIn";
 import EnterMainFile from "../Pager/EnterMainFile";
+import JobDitels from "../Pager/Home/JobDitels";
+import PrivetRouter from "./PrivetRouter";
+import JobApply from "../Pager/Home/JobApply";
 
 
 const router = createBrowserRouter([
@@ -14,6 +17,8 @@ const router = createBrowserRouter([
 
       {
         index: true,
+        loader:( () =>fetch('http://localhost:3000/data')),
+        hydrateFallbackElement: <p>Loading...</p>,
         Component: Home
       },
       {
@@ -27,8 +32,17 @@ const router = createBrowserRouter([
       {
         path: '/mainFile',
         Component: EnterMainFile
+      },
+      {
+        path: '/jobApply/:id',
+        element: <PrivetRouter><JobApply></JobApply></PrivetRouter>
+      },
+      {
+        path: '/data/:id',
+        loader: ( ({params}) => fetch(`http://localhost:3000/data/${params.id}`)),
+        hydrateFallbackElement: <p>Loading...</p>,
+        Component: JobDitels
       }
-
 
 
     ]
