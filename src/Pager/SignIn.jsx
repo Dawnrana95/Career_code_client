@@ -10,8 +10,11 @@ import { Navigate, useLocation, useNavigate } from 'react-router';
 const SignIn = () => {
 
     const {signInUser} =use(Autchontex)
+
+
     const location = useLocation()
-    console.log('signin',location);
+
+    // console.log('signin',location);
     const navigat = useNavigate()
     const from =location.state || '/'
     
@@ -38,6 +41,7 @@ const SignIn = () => {
         signInWithPopup(auth,provider)
         .then(result =>{
             console.log(result.user);
+             navigat(from)
         })
         .catch(error => {
             console.log(error);
