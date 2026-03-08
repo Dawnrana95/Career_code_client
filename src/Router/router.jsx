@@ -7,6 +7,7 @@ import EnterMainFile from "../Pager/EnterMainFile";
 import JobDitels from "../Pager/Home/JobDitels";
 import PrivetRouter from "./PrivetRouter";
 import JobApply from "../Pager/Home/JobApply";
+import MyApplicatoon from "../Pager/MyApplicatoon";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/jobApply/:id',
         element: <PrivetRouter><JobApply></JobApply></PrivetRouter>
+      },
+      {
+        path: 'myapplication',
+        element: <PrivetRouter><MyApplicatoon></MyApplicatoon></PrivetRouter>
       },
       {
         path: '/data/:id',

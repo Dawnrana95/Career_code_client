@@ -28,7 +28,7 @@ const SignIn = () => {
         // sign in firebase
         signInUser(email,password)
         .then(result =>{
-            console.log(result.user);
+            // console.log(result.user);
             navigat(from)
         })
         .catch(error => {
@@ -40,7 +40,7 @@ const SignIn = () => {
         
         signInWithPopup(auth,provider)
         .then(result =>{
-            console.log(result.user);
+            // console.log(result.user);
              navigat(from)
         })
         .catch(error => {

@@ -10,7 +10,7 @@ const Navbar = () => {
     const handalSignout = () => {
         signOutUser()
         .then( () =>{
-            console.log('signout sixes Full');
+            // console.log('signout sixes Full');
         })
         .catch(error => {
             console.log(error);
@@ -18,7 +18,12 @@ const Navbar = () => {
     }
 
     const links = <>
-        <NavLink to="/">Home</NavLink>
+        <><NavLink to="/">Home</NavLink></>
+        {
+            user && <>
+                <li><NavLink to="/myapplication">My Application</NavLink></li>
+            </>
+        }
     </>
 
 
