@@ -8,6 +8,7 @@ import JobDitels from "../Pager/Home/JobDitels";
 import PrivetRouter from "./PrivetRouter";
 import JobApply from "../Pager/Home/JobApply";
 import MyApplicatoon from "../Pager/MyApplicatoon";
+import AdeJobe from "../AddJod/AdeJobe";
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         loader: ( ({params}) => fetch(`http://localhost:3000/data/${params.id}`)),
         hydrateFallbackElement: <p>Loading...</p>,
         Component: JobDitels
+      },
+      {
+        path: '/adejobe',
+        element: <PrivetRouter><AdeJobe></AdeJobe></PrivetRouter>
       }
 
 

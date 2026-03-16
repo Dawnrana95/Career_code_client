@@ -18,10 +18,19 @@ const Navbar = () => {
     }
 
     const links = <>
-        <><NavLink to="/">Home</NavLink></>
         {
             user && <>
-                <li><NavLink to="/myapplication">My Application</NavLink></li>
+                <li className='w-1xs text-center md:gap-4'>
+                    <NavLink className='btn' to="/">Home</NavLink>
+                    <NavLink className='btn' to="/myapplication">My Application</NavLink>
+                </li>
+            </>
+        }
+        {
+            user && <>
+                <li>
+                    <NavLink className='btn' to="/adejobe">Add Jobs</NavLink>
+                </li>
             </>
         }
     </>
@@ -37,14 +46,14 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-500 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             {links}
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl">daisyUI</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="md:gap-4 px-2 flex">
                         {links}
                     </ul>
                 </div>
