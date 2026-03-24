@@ -26,7 +26,7 @@ const JobApply = () => {
         }
 
 
-        fetch('http://localhost:3000/applcation', {
+        fetch('http://localhost:3000/application', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,8 +41,10 @@ const JobApply = () => {
                         title: "Drag me!",
                         icon: "success",
                         draggable: true
+                        
                     });
                     console.log('after connect mongo db', data);
+                    // e.reset()
                 }
             })
     }

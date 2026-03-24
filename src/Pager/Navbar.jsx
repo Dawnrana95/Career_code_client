@@ -30,6 +30,7 @@ const Navbar = () => {
             user && <>
                 <li>
                     <NavLink className='btn' to="/adejobe">Add Jobs</NavLink>
+                    <NavLink className='btn' to="/postjobe">My Post Jobes</NavLink>
                 </li>
             </>
         }
