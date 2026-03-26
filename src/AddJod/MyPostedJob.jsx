@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Suspense, use } from 'react';
+import { Autchontex } from '../Contex/AuthContex';
+import MyPostDataList from './MyPostDataList';
+import { MyAddJobPromice } from '../api/Addjobs';
 
 const MyPostedJob = () => {
+    const { user } = use(Autchontex);
+
     return (
         <div>
-            <h1>post jobs</h1>
+            <Suspense fallback="loding ......">
+                <MyPostDataList  MyAddJobPromice={MyAddJobPromice(user.email)}></MyPostDataList>
+            </Suspense>
         </div>
     );
 };

@@ -4,43 +4,63 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { auth } from '../Firebase/fitebase.init';
 
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
 
     const [loding, setLoding] = useState(true)
     const [user, setUser] = useState(null)
 
-    const createUser = (email,password) => {
+    const createUser = (email, password) => {
         setLoding(true)
-        return createUserWithEmailAndPassword(auth,email,password)
+        return createUserWithEmailAndPassword(auth, email, password)
     }
-    const signInUser = (email,password) => {
+    const signInUser = (email, password) => {
         setLoding(true)
-        return signInWithEmailAndPassword(auth,email,password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
     const signOutUser = () => {
         setLoding(true)
         return signOut(auth)
     }
 
-    useEffect(()=>{
-        const unsuscrive = onAuthStateChanged(auth, currentUser =>{
+    useEffect(() => {
+        const unsuscrive = onAuthStateChanged(auth, currentUser => {
             setLoding(false)
             setUser(currentUser)
             // console.log('useEffect currentuser',currentUser);
+
+            if (currentUser?.email) {
+                const userEmail = { userEmail: currentUser.email }
+                fetch('http://localhost:3000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userEmail)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('after post on jwt', data);
+                        const token = data.token;
+                        console.log(token);
+                    })
+
+            }
+
+
         })
         return () => {
             unsuscrive
         }
-    },[])
+    }, [])
 
-  
-    const userInfo ={
+
+    const userInfo = {
         createUser,
         signInUser,
         loding,
         user,
         signOutUser,
-        
+
     }
 
     return (

@@ -10,6 +10,7 @@ import JobApply from "../Pager/Home/JobApply";
 import MyApplicatoon from "../Pager/MyApplicatoon";
 import AdeJobe from "../AddJod/AdeJobe";
 import MyPostedJob from "../AddJod/MyPostedJob";
+import ViewApplication from "../AddJod/viewApplication";
 
 
 const router = createBrowserRouter([
@@ -57,6 +58,12 @@ const router = createBrowserRouter([
       {
         path: '/postjobe',
         element: <PrivetRouter><MyPostedJob></MyPostedJob></PrivetRouter>
+      },
+      {
+        path: '/application/:_id',
+        element: <PrivetRouter><ViewApplication></ViewApplication></PrivetRouter>,
+        hydrateFallbackElement: <p>Loading...</p>,
+        loader:({params})=> fetch(`http://localhost:3000/application/job/${params._id}`)
       }
 
 

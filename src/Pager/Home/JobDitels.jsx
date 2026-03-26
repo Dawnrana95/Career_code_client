@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router';
 
 const JobDitels = () => {
-    const {_id,description,title,location,responsibilities,company_logo} = useLoaderData()
+    const {_id,description,title,location,company_logo} = useLoaderData()
 
     return (
         <div className='my-6 '>
@@ -11,9 +11,9 @@ const JobDitels = () => {
                     <h2 className="card-title">{title}</h2>
                     <p>{description}</p>
                     <p>{location}</p>
-                    {
+                    {/* {
                     responsibilities.map(arrays => <p key={arrays}>{arrays}</p>)
-                    }
+                    } */}
                 </div>
                 <div>
                     <img src={company_logo} />
