@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Autchontex } from './AuthContex';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from '../Firebase/fitebase.init';
+import axios from 'axios';
+
 
 
 const AuthProvider = ({ children }) => {
@@ -26,26 +28,14 @@ const AuthProvider = ({ children }) => {
         const unsuscrive = onAuthStateChanged(auth, currentUser => {
             setLoding(false)
             setUser(currentUser)
-            // console.log('useEffect currentuser',currentUser);
-
-            if (currentUser?.email) {
-                const userEmail = { userEmail: currentUser.email }
-                fetch('http://localhost:3000/jwt', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(userEmail)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log('after post on jwt', data);
-                        const token = data.token;
-                        console.log(token);
-                    })
-
-            }
-
+           
+            // Post on JWT
+           if(currentUser?.email){
+            axios.post('http://localhost:3000/jwt',{UserEmail: currentUser.email},{withCredentials:true})
+            .then(res => console.log(res.data))
+            .catch(error => console.log(error))
+           }
+           
 
         })
         return () => {
