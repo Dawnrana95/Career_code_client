@@ -31,9 +31,9 @@ const AuthProvider = ({ children }) => {
            
             // Post on JWT
            if(currentUser?.email){
-            axios.post('http://localhost:3000/jwt',{UserEmail: currentUser.email},{withCredentials:true})
-            .then(res => console.log(res.data))
-            .catch(error => console.log(error))
+            axios.post('https://career-code-server-gilt.vercel.app/jwt',{UserEmail: currentUser.email},{withCredentials:true})
+            // .then(res => console.log(res.data))
+            // .catch(error => console.log(error))
            }
            
 

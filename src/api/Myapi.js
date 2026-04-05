@@ -1,5 +1,5 @@
 export const MyApplicatoonPromice = (email) =>{
-    return fetch(`http://localhost:3000/application?email=${email}`,{
+    return fetch(`https://career-code-server-gilt.vercel.app/application?email=${email}`,{
         credentials: 'include'
     })
     .then(res => res.json())

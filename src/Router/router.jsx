@@ -21,7 +21,7 @@ const router = createBrowserRouter([
 
       {
         index: true,
-        loader:( () =>fetch('http://localhost:3000/data')),
+        loader:( () =>fetch('https://career-code-server-gilt.vercel.app/data')),
         hydrateFallbackElement: <p>Loading...</p>,
         Component: Home
       },
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/data/:id',
-        loader: ( ({params}) => fetch(`http://localhost:3000/data/${params.id}`)),
+        loader: ( ({params}) => fetch(`https://career-code-server-gilt.vercel.app/data/${params.id}`)),
         hydrateFallbackElement: <p>Loading...</p>,
         Component: JobDitels
       },
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         path: '/application/:_id',
         element: <PrivetRouter><ViewApplication></ViewApplication></PrivetRouter>,
         hydrateFallbackElement: <p>Loading...</p>,
-        loader:({params})=> fetch(`http://localhost:3000/application/job/${params._id}`)
+        loader:({params})=> fetch(`https://career-code-server-gilt.vercel.app/application/job/${params._id}`)
       }
 
 

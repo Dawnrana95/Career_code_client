@@ -44,7 +44,7 @@ const SignIn = () => {
              navigat(from)
         })
         .catch(error => {
-            console.log(error);
+            // console.log(error);
         })
     }
 

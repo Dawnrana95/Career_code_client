@@ -26,7 +26,7 @@ const JobApply = () => {
         }
 
 
-        fetch('http://localhost:3000/application', {
+        fetch('https://career-code-server-gilt.vercel.app/application', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -43,8 +43,8 @@ const JobApply = () => {
                         draggable: true
                         
                     });
-                    console.log('after connect mongo db', data);
-                    // e.reset()
+                    // console.log('after connect mongo db', data);
+                     e.target.reset()
                 }
             })
     }

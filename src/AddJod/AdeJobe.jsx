@@ -18,9 +18,9 @@ const AdeJobe = () => {
         const salary = e.target.salary.value;
 
         const ditels = { hr_email, company, title, category, location, company_logo, jobType, salary }
-        console.log(ditels);
+        // console.log(ditels);
 
-        fetch('http://localhost:3000/data', {
+        fetch('https://career-code-server-gilt.vercel.app/data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,9 +28,9 @@ const AdeJobe = () => {
             body: JSON.stringify(ditels)
         })
             .then(res => res.json())
-            .then(data => { console.log('aptar Add Data on mongoDB', data) })
+            // .then(data => { console.log('aptar Add Data on mongoDB', data) })
 
-
+        e.target.reset()
     }
 
 

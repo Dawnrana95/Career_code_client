@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const MyPostDataList = ({ MyAddJobPromice }) => {
 
     const MyPostjob = use(MyAddJobPromice)
-    console.log(MyPostjob);
+    // console.log(MyPostjob);
 
 
     return (

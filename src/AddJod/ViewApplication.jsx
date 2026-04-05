@@ -4,7 +4,7 @@ import { useLoaderData, useParams } from 'react-router';
 const ViewApplication = () => {
 
     const loadarData = useLoaderData()
-    console.log(loadarData);
+    // console.log(loadarData);
 
     const { _id } = useParams()
     // console.log(_id);
